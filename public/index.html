@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta
+  http-equiv="content-type"
+  content="text/html;charset=UTF-8">
+
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  </link>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </link>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  </link>
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/style.css" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="WPZOOM RSS Feed"
+      href="https://feeds2.feedburner.com/wpzoom"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      href="https://b8f4g5a7.rocketcdn.me/wp-content/themes/wpzoom/images/favicon.ico"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="https://b8f4g5a7.rocketcdn.me/wp-content/themes/wpzoom/images/favicon.svg"
+      type="image/svg+xml"
+    />
+    <meta name="theme-color" content="#164777" />
+
+    <title>Wptopworld</title>
+
+    <link
+      rel="preload"
+      href="%PUBLIC_URL%/css/46371ef6c72c4c93ad616f3fa82b94ee.css"
+      data-rocket-async="style"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      onerror="this.removeAttribute('data-rocket-async')"
+      media="all"
+      data-minify="1"
+    />
+
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/lib/jquery/jquery.mina7a0.js"
+      id="jquery-core-js"
+    ></script>
+    <script
+      type="text/javascript"
+      defer="defer"
+      src="%PUBLIC_URL%/lib/dist/hooks.min6c65.js"
+      id="wp-hooks-js"
+    ></script>
+</head>
+
+<body
+  class="post-template-default single single-post postid-409201 single-format-standard"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+    <script>
+      window.lazyLoadOptions = [
+        {
+          elements_selector:
+            "img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",
+          data_src: "lazy-src",
+          data_srcset: "lazy-srcset",
+          data_sizes: "lazy-sizes",
+          class_loading: "lazyloading",
+          class_loaded: "lazyloaded",
+          threshold: 300,
+          callback_loaded: function (element) {
+            if (
+              element.tagName === "IFRAME" &&
+              element.dataset.rocketLazyload == "fitvidscompatible"
+            ) {
+              if (element.classList.contains("lazyloaded")) {
+                if (typeof window.jQuery != "undefined") {
+                  if (jQuery.fn.fitVids) {
+                    jQuery(element).parent().fitVids();
+                  }
+                }
+              }
+            }
+          },
+        },
+        {
+          elements_selector: ".rocket-lazyload",
+          data_src: "lazy-src",
+          data_srcset: "lazy-srcset",
+          data_sizes: "lazy-sizes",
+          class_loading: "lazyloading",
+          class_loaded: "lazyloaded",
+          threshold: 300,
+        },
+      ];
+      window.addEventListener(
+        "LazyLoad::Initialized",
+        function (e) {
+          var lazyLoadInstance = e.detail.instance;
+          if (window.MutationObserver) {
+            var observer = new MutationObserver(function (mutations) {
+              var image_count = 0;
+              var iframe_count = 0;
+              var rocketlazy_count = 0;
+              mutations.forEach(function (mutation) {
+                for (var i = 0; i < mutation.addedNodes.length; i++) {
+                  if (
+                    typeof mutation.addedNodes[i].getElementsByTagName !==
+                    "function"
+                  ) {
+                    continue;
+                  }
+                  if (
+                    typeof mutation.addedNodes[i].getElementsByClassName !==
+                    "function"
+                  ) {
+                    continue;
+                  }
+                  images = mutation.addedNodes[i].getElementsByTagName("img");
+                  is_image = mutation.addedNodes[i].tagName == "IMG";
+                  iframes =
+                    mutation.addedNodes[i].getElementsByTagName("iframe");
+                  is_iframe = mutation.addedNodes[i].tagName == "IFRAME";
+                  rocket_lazy =
+                    mutation.addedNodes[i].getElementsByClassName(
+                      "rocket-lazyload"
+                    );
+                  image_count += images.length;
+                  iframe_count += iframes.length;
+                  rocketlazy_count += rocket_lazy.length;
+                  if (is_image) {
+                    image_count += 1;
+                  }
+                  if (is_iframe) {
+                    iframe_count += 1;
+                  }
+                }
+              });
+              if (image_count > 0 || iframe_count > 0 || rocketlazy_count > 0) {
+                lazyLoadInstance.update();
+              }
+            });
+            var b = document.getElementsByTagName("body")[0];
+            var config = { childList: !0, subtree: !0 };
+            observer.observe(b, config);
+          }
+        },
+        !1
+      );
+    </script>
+    <script>
+      function wprRemoveCPCSS() {
+        var preload_stylesheets = document.querySelectorAll(
+          'link[data-rocket-async="style"][rel="preload"]'
+        );
+        if (preload_stylesheets && 0 < preload_stylesheets.length)
+          for (
+            var stylesheet_index = 0;
+            stylesheet_index < preload_stylesheets.length;
+            stylesheet_index++
+          ) {
+            var media =
+              preload_stylesheets[stylesheet_index].getAttribute("media") ||
+              "all";
+            if (window.matchMedia(media).matches)
+              return void setTimeout(wprRemoveCPCSS, 200);
+          }
+        var elem = document.getElementById("rocket-critical-css");
+        elem && "remove" in elem && elem.remove();
+      }
+      window.addEventListener
+        ? window.addEventListener("load", wprRemoveCPCSS)
+        : window.attachEvent && window.attachEvent("onload", wprRemoveCPCSS);
+    </script>
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="../../../b8f4g5a7.rocketcdn.me/wp-content/cache/min/1/46371ef6c72c4c93ad616f3fa82b94ee.css"
+        media="all"
+        data-minify="1"
+    /></noscript>
+    <script
+      defer
+      src="../../../b8f4g5a7.rocketcdn.me/wp-content/cache/autoptimize/js/autoptimize_08bbc16dc1071e39a6d794636f5a583d.js"
+    ></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
+      integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
+      data-cf-beacon='{"rayId":"79fd1aa04c6804b6","token":"fbc03c8a73da4c999a0b3bd0141e8638","version":"2023.2.0","si":100}'
+      crossorigin="anonymous"
+    ></script>
+</body>
+
+</html>
